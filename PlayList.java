@@ -97,12 +97,12 @@ class PlayList {
     public boolean add(int i, Track track) 
 	{
         //// replace the following statement with your code
-		if(i<0 || i>=this.size)
+		if(i<0 || i>this.size)
 			return false;
 		if(this.size==0)
 		{
 			this.tracks[0]= track;
-			size++;
+			this.size++;
 			return true;
 		}
 		this.size++;

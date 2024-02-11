@@ -179,7 +179,7 @@ class PlayList {
 	{
         //// replace the following statement with your code
 		int min = this.tracks[start].getDuration();
-		int index = 0 ; 
+		int index = start ; 
 		if(start>=0 || start>this.size)
 		{
 			for(int i=start; i <this.size ; i ++)
@@ -194,13 +194,12 @@ class PlayList {
 		}
         return -1;
     }
+	
 
     /** Returns the title of the shortest track in this list. 
      *  If the list is empty, returns null. */
     public String titleOfShortestTrack() 
 	{
-		if(this.size==0)
-			return null;
         return tracks[minIndex(0)].getTitle();
     }
 
@@ -208,17 +207,13 @@ class PlayList {
      *  durations will appear first. The sort is done in-place. In other words,
      *  rather than returning a new, sorted playlist, the method sorts
      *  the list on which it was called (this list). */
-public void sortedInPlace() {
-        // Uses the selection sort algorithm,  
-        // calling the minIndex method in each iteration.
+    public void sortedInPlace() {
         for (int i = 0; i < this.size; i++) {
-            int min = this.minIndex(i);
-            // Swaps between track[i] and track[min] in the tracks array
-            if (i != min) {
-                Track temp = tracks[i];
-                tracks[i] = tracks[min];
-                tracks[min] = temp;
-            }
+            int minIndex = minIndex(i);
+            Track temp = this.tracks[i];
+            this.tracks[i] = this.tracks[minIndex];
+            this.tracks[minIndex] = temp;
         }
+
     }
 }

@@ -57,8 +57,14 @@ class RuniFi {
         display("New list after removing Yellow:", newList);
 
         // Adds all the tracks from the new list to my list 
+		display("",myList);
         myList.add(newList);
         display("My list after merging with new list", myList);
+		//System.out.println(myList.minIndex(2));
+		//System.out.println(myList.minIndex(0));
+		
+		
+		
 
         // Tests the ability to find the track with the shortest duration
         System.out.println("\nThe shortest track in my list is " + myList.titleOfShortestTrack());
@@ -66,6 +72,7 @@ class RuniFi {
         // Sorts the list 
         myList.sortedInPlace();
         display("My list after sorting by increasing duration", myList);
+		
     }
 
     private static void display(String str, PlayList list) {

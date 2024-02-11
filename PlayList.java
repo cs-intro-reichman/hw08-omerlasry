@@ -157,7 +157,7 @@ class PlayList {
 			int prevsize = this.size;
 			int index = 0;
 			this.size = this.size+other.getSize();
-			for(int i = prevsize ; i<this.size ; i++)
+			for(int i = prevsize-1 ; i<this.size ; i++)
 			{
 				this.tracks[i]=other.getTrack(index);
 				index++;

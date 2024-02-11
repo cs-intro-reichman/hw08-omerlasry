@@ -1,5 +1,6 @@
 /** Represnts a list of musical tracks. The list has a maximum capacity (int),
  *  and an actual size (number of tracks in the list, an int). */
+
 class PlayList {
     private Track[] tracks;  // Array of tracks (Track objects)   
     private int maxSize;     // Maximum number of tracks in the array
@@ -119,8 +120,8 @@ class PlayList {
         //// replace this comment with your code
 		if(i>=0 || i<this.size || this.size!=0)
 		{
-			for(int j = this.size-1 ; j>i ; j--)
-				this.tracks[j-1]=this.tracks[j];
+			for(int j = i ; j<this.size-1 ; j++)
+				this.tracks[j]=this.tracks[j+1];
 			this.size--;
 		}
     }
@@ -149,7 +150,7 @@ class PlayList {
     /** Adds all the tracks in the other list to the end of this list. 
      *  If the total size of both lists is too large, does nothing. */
     //// An elegant and terribly inefficient implementation.
-     /*public void add(PlayList other) 
+     public void add(PlayList other) 
 	 {
         //// replace this comment with your code
 		if(this.size+other.getSize()<=maxSize)
@@ -164,17 +165,8 @@ class PlayList {
 			}
 		}
     }
-	*/
 	
-	 public void add(PlayList other) {
-        int totalSize = this.size + other.size;
-        if (totalSize <= this.maxSize) {
-            for (int i = 0; i < other.size; i++) {
-                this.tracks[size + i] = other.tracks[i];
-            }
-        }
-
-    }
+	
 	
 
     /** Returns the index in this list of the track that has the shortest duration,
